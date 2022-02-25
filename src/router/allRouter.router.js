@@ -24,7 +24,7 @@ class AppRouter {
         this.router.post('/auth/login',this.authController.LOGIN)
         this.router.post('/auth/register',avatarIMG.single('avatar'),this.authController.REGISTER)
         this.router.get('/users',TokenParser,this.userController.GET)
-        this.router.get('/messages',this.messageController.GET)
+        this.router.get('/messages',TokenParser,this.messageController.GET)
         
 
     }

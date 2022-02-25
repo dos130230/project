@@ -1,6 +1,3 @@
-import jwt from '../utils/jwt.util.js'
-import path from 'path'
-import fs from 'fs'
 
 class UserContoller {
     async GET (req,res,next) {

@@ -4,7 +4,7 @@ config()
 const POOL = {
     host : 'localhost',
     user : 'postgres',
-    database : 'feedback',
+    database : 'chat_messages',
     password : '130230'
 }
 

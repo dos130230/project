@@ -3,12 +3,13 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.4",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3"
   },
   "name": "project",
   "version": "1.0.0",
-  "type" : "module",
+  "type": "module",
   "main": "config.js",
   "scripts": {
     "node": "node ./src/server.js",

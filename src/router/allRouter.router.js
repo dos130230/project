@@ -1,5 +1,7 @@
 import { Router } from "express";
 import {AuthContoller} from '../controller/auth.controller.js'
+import multer from "multer";
+const avatarIMG = multer()
 
 class AppRouter {
     constructor (){
@@ -12,6 +14,7 @@ class AppRouter {
     creatRouter (){
         // barcha routerlar ulanadi
         this.router.post('/auth/login',this.authController.LOGIN)
+        this.router.post('/auth/register',avatarIMG.single('avatar'),this.authController.REGISTER)
     }
 }
 

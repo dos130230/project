@@ -66,13 +66,11 @@ class AuthContoller {
             let agent = (req.headers['user-agent'])
             let newUser = result[0]
             newUser.agent = agent
-            // console.log(newUser)
 
             let token = jwt.sign(newUser)
             const filePath = path.join(process.cwd(),"upload","avatar",fileName)
 
             let bufferWrite = fs.writeFileSync(filePath,buffer)
-            // console.log(filePath)
 
             return res.status(201).json({
                 message: 'LOGIN OK',
@@ -85,7 +83,6 @@ class AuthContoller {
         }
     }
 }
-
 export {
     AuthContoller
 }

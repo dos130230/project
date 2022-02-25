@@ -38,7 +38,6 @@ class AuthContoller {
     async REGISTER(req, res, next) {
         try {
             const { fullname, username, password } = req.body
-            // console.log(req.body)
 
             if (!fullname || !username || !password) throw new Error("Forma bo'sh bolmasim")
 
@@ -46,7 +45,7 @@ class AuthContoller {
             if (username.length > 32 || username.length < 5) throw new Error("username belgisi 5<n<32 bo'lishi shart")
             if (password.length > 128 || password.length < 5) throw new Error("password belgisi 5<n<128 bo'lishi shart!")
             if(!req.file) throw new Error("Rasm kiritish kerak!")
-            // console.log(fullname,username,password)
+            
             const { originalname, mimetype, buffer } = req.file
             const fileName = Date.now() +originalname.replace(/\s/g,"")
 

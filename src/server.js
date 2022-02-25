@@ -11,6 +11,7 @@ app.use(express.json())
 import postgres from './middleware/postgres.connect.js'
 app.use(postgres)
 
+
 // // loading router
 import allRouter from './router/allRouter.router.js'
 app.use(allRouter)

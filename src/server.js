@@ -1,11 +1,16 @@
 import express from "express";
 import config from '../config.js'
+import path from 'path'
+
 
 import { createServer } from "http";
 import { Server } from "socket.io";
 
 const app = express();
 app.use(express.json())
+
+// static filelarni olib berish uchun
+app.use(express.static(path.join(process.cwd(),'upload')))
 
 // //middlewares loading
 import postgres from './middleware/postgres.connect.js'

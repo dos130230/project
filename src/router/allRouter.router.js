@@ -11,7 +11,7 @@ class AppRouter {
 
     creatRouter (){
         // barcha routerlar ulanadi
-        this.router.get('/home',this.authController.LOGIN)
+        this.router.post('/auth/login',this.authController.LOGIN)
     }
 }
 

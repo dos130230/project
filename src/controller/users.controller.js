@@ -1,6 +1,6 @@
 
 class UserContoller {
-    async GET (req,res,next) {
+    async GET(req, res, next) {
         let users = await req.fetch(`
             select 
                 user_id,
@@ -9,9 +9,7 @@ class UserContoller {
                 avatar_img
             from users
             where user_id<>$1;
-        `,req.user.user_id)
-
-        // console.log(users)
+        `, req.user.user_id)
         res.send(users)
     }
 }

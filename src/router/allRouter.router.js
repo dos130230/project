@@ -4,8 +4,9 @@ import {UserContoller} from '../controller/users.controller.js'
 import {MessageController} from '../controller/messages.controller.js'
 import TokenParser from '../middleware/token.parser.js'
 
+
 import multer from "multer";
-const avatarIMG = multer()
+const upload = multer()
 
 class AppRouter {
     constructor (){
@@ -22,9 +23,10 @@ class AppRouter {
         // barcha routerlar ulanadi
 
         this.router.post('/auth/login',this.authController.LOGIN)
-        this.router.post('/auth/register',avatarIMG.single('avatar'),this.authController.REGISTER)
+        this.router.post('/auth/register',upload.single('avatar'),this.authController.REGISTER)
         this.router.get('/users',TokenParser,this.userController.GET)
         this.router.get('/messages',TokenParser,this.messageController.GET)
+        this.router.post('/messages',TokenParser,upload.single('file'),this.messageController.POST)
         
 
     }

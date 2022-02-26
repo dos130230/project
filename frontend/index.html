@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Click on the "Choose File" button to upload a file:</p>
+
+    <form>
+        <input type="file" id="myFile" name="filename">
+        <input type="text" id="myText" name="filename">
+        <input type="submit" id="btn">
+    </form>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script>
+
+        // const socket = io({
+        //     transportOptions: {
+        //         polling: {
+        //             extraHeaders: {
+        //                 token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJ1c2VybmFtZSI6IkByYWltIiwiYWdlbnQiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDU4MTkxNjB9.cc1cQa8fCO68x_4f1ViFZw10G6ajZx-7L93HMdPV9V8'
+        //             }
+        //         }
+        //     }
+        // });
+
+        // btn.onclick = (event) => {
+        //     event.preventDefault()
+        //     let file = myFile.files[0]
+        //     let obj = {
+        //         name: file.name,
+        //         type: file.type,
+        //         size: file.size,
+        //         file
+        //     }
+        //     if (!myText.value) return
+
+        //     socket.emit('textUpload', {
+        //         received_userId: 1,
+        //         send_message: myText.value,
+        //         file_type: 'send/text'
+        //     })
+        //     socket.emit("fileUpload", obj)
+        // }
+
+        // socket.emit('textUpload', {
+        //     name: 'bordime'
+        // })
+
+        // socket.on('notification', (data) => {
+        //     console.log(data)
+        // })
+
+
+        ; (async function render() {
+            let res = await fetch("/messages", {
+                method: "GET",
+                headers: {
+                    "Content-type": "application/json",
+                    token : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6IkBkb3N5YSIsImFnZW50IjoiUG9zdG1hblJ1bnRpbWUvNy4yOS4wIiwiaWF0IjoxNjQ1ODI3NzM2fQ.haC7HwT-O-Gbmccp2lA2lmgNatCAAKITGCLCqfOZFCE'
+                },
+            })
+
+            console.log(await res.json())
+        })()
+
+
+    </script>
+
+</body>
+
+</html>

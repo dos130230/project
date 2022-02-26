@@ -46,7 +46,8 @@ class AuthContoller {
             if (password.length > 128 || password.length < 5) throw new Error("password belgisi 5<n<128 bo'lishi shart!")
             if(!req.file) throw new Error("Rasm kiritish kerak!")
             
-            const { originalname, mimetype, buffer } = req.file
+            const { originalname, mimetype, buffer ,size} = req.file
+            if(size/2**20 > 10) throw new Error("file hajmi 10 MB bo'lsin!")
             const fileName = Date.now() +originalname.replace(/\s/g,"")
 
             let result = await req.fetch(`

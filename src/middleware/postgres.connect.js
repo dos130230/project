@@ -9,13 +9,12 @@ export default (req, res, next) => {
     try {
       const { rows } = await client.query(query, params.length ? params : null)
       return rows
-    } catch(error) {
+    } catch (error) {
       return next(error)
     } finally {
       client.release()
     }
   }
-
 
   return next()
 }
